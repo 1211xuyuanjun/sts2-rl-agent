@@ -1,0 +1,101 @@
+"""Configuration for STS2 GRPO training."""
+
+
+class STS2GRPOConfig:
+    """Configuration for STS2 GRPO training."""
+    
+    def __init__(
+        self,
+        model_id: str = "Qwen/Qwen2.5-1.5B-Instruct",
+        tokenizer_id: str = None,
+        dataset_size: int = 50,
+        num_generations: int = 4,
+        max_steps: int = 200,
+        batch_size: int = 2,
+        learning_rate: float = 1e-5,
+        epochs: int = 3,
+        max_new_tokens: int = 32,
+        temperature: float = 0.7,
+        top_k: int = 50,
+        beta: float = 0.02,
+        max_seq_len: int = 2048,
+        output_dir: str = "outputs/sts2_grpo",
+        save_interval: int = 10,
+        logging_steps: int = 1,
+        player_hp: int = 80,
+        player_max_hp: int = 80,
+        bf16: bool = True,
+        debug: bool = False,
+        gamma: float = 0.95,
+        omega: float = 1.0,
+        use_std_norm: bool = True,
+        format_reward_weight: float = 1.0,
+        use_vllm: bool = False,
+        use_lora: bool = True,
+        lora_r: int = 16,
+        lora_alpha: int = 32,
+        lora_dropout: float = 0.05,
+        lora_target_modules = ["q_proj", "k_proj", "v_proj", "o_proj"],
+        use_gradient_checkpointing: bool = True,
+        use_future_kl: bool = False,
+        future_kl_tau: float = 32.0,
+        future_kl_clip_low: float = 1.0,
+        future_kl_clip_high: float = 1.2,
+        dual_clip_threshold: float = 10.0,
+        future_kl_clip_high_only: bool = True,
+        safety_thresh: float = 10.0,
+        clip_ratio_low: float = 0.2,
+        clip_ratio_high: float = 0.28,
+        warmup_ratio: float = 0.05,
+        min_lr_ratio: float = 0.1,
+        use_wandb: bool = True,
+        wandb_project: str = "sts2-rl-agent",
+        wandb_entity: str = None,
+        wandb_run_name: str = None,
+    ):
+        self.model_id = model_id
+        self.tokenizer_id = tokenizer_id if tokenizer_id is not None else model_id
+        self.dataset_size = dataset_size
+        self.num_generations = num_generations
+        self.max_steps = max_steps
+        self.batch_size = batch_size
+        self.learning_rate = learning_rate
+        self.epochs = epochs
+        self.max_new_tokens = max_new_tokens
+        self.temperature = temperature
+        self.top_k = top_k
+        self.beta = beta
+        self.max_seq_len = max_seq_len
+        self.output_dir = output_dir
+        self.save_interval = save_interval
+        self.logging_steps = logging_steps
+        self.player_hp = player_hp
+        self.player_max_hp = player_max_hp
+        self.bf16 = bf16
+        self.debug = debug
+        self.gamma = gamma
+        self.omega = omega
+        self.use_std_norm = use_std_norm
+        self.format_reward_weight = format_reward_weight
+        self.use_vllm = use_vllm
+        self.use_lora = use_lora
+        self.lora_r = lora_r
+        self.lora_alpha = lora_alpha
+        self.lora_dropout = lora_dropout
+        self.lora_target_modules = lora_target_modules
+        self.use_gradient_checkpointing = use_gradient_checkpointing
+        self.use_future_kl = use_future_kl
+        self.future_kl_tau = future_kl_tau
+        self.future_kl_clip_low = future_kl_clip_low
+        self.future_kl_clip_high = future_kl_clip_high
+        self.dual_clip_threshold = dual_clip_threshold
+        self.future_kl_clip_high_only = future_kl_clip_high_only
+        self.safety_thresh = safety_thresh
+        self.clip_ratio_low = clip_ratio_low
+        self.clip_ratio_high = clip_ratio_high
+        self.warmup_ratio = warmup_ratio
+        self.min_lr_ratio = min_lr_ratio
+        self.use_wandb = use_wandb
+        self.wandb_project = wandb_project
+        self.wandb_entity = wandb_entity
+        self.wandb_run_name = wandb_run_name

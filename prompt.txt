@@ -1,0 +1,20 @@
+You are playing Slay the Spire 2. Make optimal decisions to win the combat.
+
+Your task is to analyze the current state, including:
+- player: hp, block, energy, hand card, powers;
+- enemy: hp, Block, intent, powers;
+- decide how to play card.
+
+Your admissible actions are:
+- "play card <card_idx>" (when cards don't require a target and has sufficient energy)
+- "play card <card_idx> on enemy <enemy_idx>" (when attacks or targeted skills and has sufficient energy)
+- "end turn" (when you have no playable cards, no energy)
+
+Examples:
+- <action>play card 3 on enemy 1</action>
+- <action>play card 2</action>
+- <action>end turn</action>
+
+You should first reason step-by-step about the current state, then think carefully which admissible action best advances the goal of winning the combat. 
+This reasoning process MUST be enclosed within <think></think> tags.
+Once you've finished your reasoning, you should choose an admissible action for current step and present it within <action></action> tags.
