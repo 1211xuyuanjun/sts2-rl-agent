@@ -6,6 +6,13 @@
 
 本项目实现了一个基于 GRPO (Group Relative Policy Optimization) 的强化学习训练系统，用于训练 STS2 (Slay the Spire 2) 游戏代理。使用了 LoRA 高效微调技术和 vLLM 加速推理。
 
+
+本项目初心是看游戏社区积极使用AI，加上Agent RL流行，想着两者结合一下。找了一些项目之后发现只有简单PPO实现，然后决定实现一个Agent，最后使用了这个[Env](https://github.com/zhiyue/sts2-rl-agent)，同时参考了[GiGPO](https://arxiv.org/abs/2505.10978)，[FIPO](https://arxiv.org/abs/2603.19835)两篇论文，因个人精力有限，该项目仅作学习研究，若想共同改进，可添加issue。
+
+TODO:
+完善全局策略，收集数据，针对选卡、删卡、路线进行On-policy 蒸馏。
+
+
 ## 功能特性
 
 - **GiGPO 算法**：结合了 Grandmaster-informed 思想的 GRPO 变体
